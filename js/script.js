@@ -14,18 +14,7 @@
 
     })(this.jQuery);
 
-$(document).ready(function() {
 
-    $.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
-});
-
-//overlay
-$(document).ready(function() {
-
-
-
-    $("img[rel]").overlay();
-});
 
 // usage: log('inside coolFunc',this,arguments);
 // paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
@@ -39,15 +28,15 @@ window.log = function(){
 
 $(document).ready(function() {
     $('.slideshow').cycle({
-        speedIn:  2000,
-        speedOut: 2000,
-        timeout:   5000,
-        fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-    });
-    $('.slideshow').css("display", "block");
+speedIn:  2000,
+	    speedOut: 2000,
+	   timeout:   10000,
+		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+$('.slideshow').css("display", "block");
 });
        
-
+  $.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
 
 // catch all document.write() calls
 (function(doc){
@@ -66,57 +55,14 @@ jQuery(function() {
     jQuery('.wymeditor').wymeditor();
 });
 
-$(document).ready(function() {
-    $(".services").hover(
-        function () {
-            $(this).stop().animate({
-                opacity:0.8
-            },
-            500
-            );
-            $(this).find("h2").stop().animate({
-                color:"#000000"
-            },
-            500
-            );
-        },
-        function () {
-            $(this).stop().animate({
-                opacity:1.0
-            }, 
-            500
-            );
-            $(this).find("h2").stop().animate({
-                color:"#319825"
-            },
-            500
-            );
-        }
-        );
-});
-
-//gallery image mouse overs
-$(document).ready(function() {
-    $(".thumbnails").hover(
-        function() {
-            $(this).stop().animate({
-                opacity:0.5
-            },
-            300
-            );
-        },
-        function () {
-            $(this).stop().animate({
-                opacity:1.0
-            },
-            300
-            );
-        })
-
-       
-    
-    
-});
+$("#title h2").hover(
+  function () {
+    $(this).css('color', '#000000');
+  },
+   function () {
+   $(this).css('color', '#319825');
+  }
+);
 
 
 
