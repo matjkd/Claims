@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="<?= base_url() ?>css/claims/base.css">
 <link rel="stylesheet" href="<?= base_url() ?>css/claims/skeleton.css">
 <link rel="stylesheet" href="<?= base_url() ?>css/claims/layout.css">
+<link rel="stylesheet" href="<?= base_url() ?>css/jqcloud.css">
 <link rel="stylesheet" href="<?= base_url() ?>css/claims/template.css">
 
 <!--[if lt IE 9]>

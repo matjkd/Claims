@@ -12,6 +12,7 @@
   <!-- scripts concatenated and minified via ant build script-->
    <script src="http://cdn.jquerytools.org/1.2.6/all/jquery.tools.min.js"></script>
     <script src="<?=base_url()?>js/wymeditor/jquery.wymeditor.min.js"></script>
+      <script src="<?=base_url()?>js/jqcloud-1.0.0.min.js"></script>
   <script src="<?=base_url()?>js/plugins.js"></script>
      <script src="<?=base_url()?>js/datatables.js"></script>
       <script src="<?=base_url()?>js/script.js"></script>

@@ -25,7 +25,23 @@ if (!isset($category)) {
 
 <p>
     Category:<br/>
-    <input type="text" name="category" id="datepicker" value="<?= set_value('category', $category) ?>"  disable="disabled" onFocus="this.blur();"><br/>
+    <input type="text" name="category"  value="<?= set_value('category', $category) ?>"  disable="disabled" onFocus="this.blur();"><br/>
+</p>
+
+<p>
+    Sub-Category:<br/>
+    
+     <?php
+        $subcatoptions = array(
+        		'none' => 'none',
+            'road_traffic_accidents' => 'Road Traffic Accidents',
+            'accidents_at_work' => 'Accidents at Work',
+            'slipping_and_tripping' => 'Slipping and Tripping'
+        );
+        ?>
+    <?= form_dropdown('subcategory', $subcatoptions) ?>
+    
+    
 </p>
 
 <p class="Image">

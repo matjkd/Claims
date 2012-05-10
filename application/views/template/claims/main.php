@@ -31,7 +31,7 @@
                 <div class="three columns"><div class="main_links"> <h1><a href="" id="bigtitle4">Claim</a></h1><img src="<?= base_url() ?>images/icons/selector.png"/></div></div>
                 
                    <div class="sixteen columns" id="accident_mega" style="display:none">
-                accident menu
+               <?=$this->load->view('global/claims/accident_menu')?>
             </div>
                  <div class="sixteen columns" id="advice_mega" style="display:none">
                 advice menu

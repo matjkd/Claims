@@ -8,7 +8,9 @@
 
 <a href="<?=base_url()?>admin/add_content">add content</a><br/>
 
-<a href="<?=base_url()?>admin/add_testimonial_content">add Testimonial</a><br/>
+<a href="<?=base_url()?>admin/add_category_content/testimonial">add Testimonial</a><br/>
+
+<a href="<?=base_url()?>admin/add_category_content/accident">add Accident</a><br/>
 
 <a href="<?=base_url()?>admin/add_gallery_content">add gallery content</a><br/>
 

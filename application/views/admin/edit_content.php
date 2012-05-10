@@ -10,11 +10,36 @@ Title* <br/><?=form_input('title', $row->title)?><br/>
 </p>
 
 
-<?=form_hidden('menu', $row->menu)?>
+<p>
+    Menu link:<br/>
+    <?=form_input('menu', $row->menu) ?>
+</p>
+
+
+<p>
+    Category:<br/>
+    <input type="text" name="category"  value="<?=$row->category?>"  disable="disabled" onFocus="this.blur();"><br/>
+</p>
+
+<p>
+    Sub-Category:<br/>
+    
+     <?php
+        $subcatoptions = array(
+        		'none' => 'none',
+            'road_traffic_accidents' => 'Road Traffic Accidents',
+            'accidents_at_work' => 'Accidents at Work',
+            'slipping_and_tripping' => 'Slipping and Tripping'
+        );
+        ?>
+    <?= form_dropdown('subcategory', $subcatoptions, $row->subcategory) ?>
+    
+    
+</p>
 
 
  <?php if($row->news_image != NULL) { ?>
-<img src="https://s3-eu-west-1.amazonaws.com/grandgardendesigns/<?=$row->news_image?>" style="padding:10px 10px 10px 0;" width="150px">
+<img src="https://s3-eu-west-1.amazonaws.com/kerclaims/<?=$row->news_image?>" style="padding:10px 10px 10px 0;" width="150px">
 <?php } ?>
 <p class="Image">
     <?= form_label('Image') ?><br/>

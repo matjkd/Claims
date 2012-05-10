@@ -291,7 +291,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(){
- 
+ var cloudcount = 0;
        $('#bigtitle1').mouseenter(function() {
            $('#advice_mega').slideUp('fast');
            $('#compensation_mega').slideUp('fast');
@@ -299,6 +299,13 @@ $(document).ready(function(){
             var submenu = $('#accident_mega');
          
                 submenu.slideDown('fast');
+                
+                if(cloudcount == 0) {
+                $("#wordcloud").jQCloud(word_list, {
+                	width:920
+                });
+                }
+                cloudcount = 1;
                var submenu_active = true;
            
         });
@@ -329,7 +336,9 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
- 
+	 
+	
+	
        $('#bigtitle2').mouseenter(function() {
              $('#accident_mega').slideUp('fast');
             
@@ -338,6 +347,8 @@ $(document).ready(function(){
             var submenu = $('#advice_mega');
          
                 submenu.slideDown('fast');
+             
+               
                var submenu_active = true;
            
         });

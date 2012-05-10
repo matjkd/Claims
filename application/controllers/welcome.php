@@ -1,142 +1,152 @@
 <?php
 
 if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+	exit('No direct script access allowed');
 
 class Welcome extends MY_Controller {
 
-    function __construct() {
-        parent::__construct();
-        $this->load->model('captcha_model');
-    }
+	function __construct() {
+		parent::__construct();
+		$this->load->model('captcha_model');
+	}
 
-    public function index() {
-        $segment_active = $this->uri->segment(2);
-        if ($segment_active != NULL) {
-            $data['menu'] = $this->uri->segment(2);
-        } else {
-            $data['menu'] = 'home';
-        }
+	public function index() {
+		$segment_active = $this->uri->segment(2);
+		if ($segment_active != NULL) {
+			$data['menu'] = $this->uri->segment(2);
+		} else {
+			$data['menu'] = 'home';
+		}
 
-        $data['content'] = $this->content_model->get_content($data['menu']);
-        $data['captcha'] = $this->captcha_model->initiate_captcha();
-        $data['seo_links'] = $this->content_model->get_seo_links();
-        $data['testimonials'] = $this->content_model->get_testimonials();
-        foreach ($data['content'] as $row):
+		$this->get_content_data($data['menu']);
+	
+		$data['seo_links'] = $this->content_model->get_seo_links();
+		
+	
+		$data['sidebar'] = "sidebox/side";
+		$data['main_content'] = "global/" . $this->config_theme . "/content";
+		$data['cats'] = $this->products_model->get_cats();
+		$data['products'] = $this->products_model->get_all_products();
+		$data['section2'] = 'global/links';
+		if ($this->session->flashdata('message')) {
+			$data['message'] = $this->session->flashdata('message');
+		}
 
-            $data['title'] = $row->title;
-            $data['sidebox'] = $row->sidebox;
-            $data['metatitle'] = $row->meta_title;
-             $data['meta_keywords'] = $row->meta_desc;
-            $data['meta_description'] = $row->meta_keywords;
-            $data['slideshow_active'] = $row->slideshow;
-        endforeach;
-        $data['sidebar'] = "sidebox/side";
-        $data['main_content'] = "global/" . $this->config_theme . "/content";
-        $data['cats'] = $this->products_model->get_cats();
-        $data['products'] = $this->products_model->get_all_products();
-        $data['section2'] = 'global/links';
-        if ($this->session->flashdata('message')) {
-            $data['message'] = $this->session->flashdata('message');
-        }
+		$data['slideshow'] = 'header/slideshow';
+		$this->load->vars($data);
+		$this->load->view('template/main');
+	}
 
-        $data['slideshow'] = 'header/slideshow';
-        $this->load->vars($data);
-        $this->load->view('template/main');
-    }
+	function get_content_data($menu) {
+		$data['content'] = $this->content_model->get_content($menu);
+		$data['captcha'] = $this->captcha_model->initiate_captcha();
+		$data['testimonials'] = $this->content_model->get_category('testimonial');
+		$data['accidents'] = $this->content_model->get_category('accident');
+		
+		
+		foreach ($data['content'] as $row):
 
-    function test() {
-        $data['main_content'] = 'slideshow/slideshow';
-        $this->load->vars($data);
-        $this->load->view('template/main');
-    }
+		$data['title'] = $row->title;
+		$data['sidebox'] = $row->sidebox;
+		$data['metatitle'] = $row->meta_title;
+		
+		$data['meta_keywords'] = $row->meta_keywords;
+		$data['meta_description'] = $row->meta_desc;
+		$data['slideshow'] = $row->slideshow;
+		
+		$data['date_added'] = $row->date_added;
 
-    function home() {
 
-        $segment_active = $this->uri->segment(3);
-        if ($segment_active != NULL) {
-            $data['menu'] = $this->uri->segment(3);
-        } else {
-            $data['menu'] = $this->uri->segment(1);
-        }
+		endforeach;
 
-        $data['content'] = $this->content_model->get_content($data['menu']);
-        $data['captcha'] = $this->captcha_model->initiate_captcha();
-        $data['testimonials'] = $this->content_model->get_testimonials();
-        foreach ($data['content'] as $row):
+		//format the date
+		$datestring = "%D %d%S of %M %Y";
+		$time = $data['date_added'];
 
-            $data['title'] = $row->title;
-            $data['sidebox'] = $row->sidebox;
-            $data['metatitle'] = $row->meta_title;
-            $data['meta_description'] = $row->meta_desc;
-            $data['meta_keywords'] = $row->meta_keywords;
-            $data['slideshow_active'] = $row->slideshow;
-        endforeach;
-        $data['sidebar'] = "sidebox/side";
-        $data['main_content'] = "global/" . $this->config_theme . "/content";
-        //$data['cats'] = $this->products_model->get_cats();
-        //$data['products'] = $this->products_model->get_all_products();
-        $data['section2'] = 'global/links';
-        $data['seo_links'] = $this->content_model->get_seo_links();
-        if ($this->session->flashdata('message')) {
-            $data['message'] = $this->session->flashdata('message');
-        }
+		$data['date_added']  = mdate($datestring, $time);
 
-        $data['slideshow'] = 'header/slideshow';
-        $this->load->vars($data);
-        $this->load->view('template/main');
-    }
 
-    function gallery($gallery) {
-        $data['content'] = $this->content_model->get_gallery($gallery);
-        $data['main_content'] = "global/gallery";
-        $this->load->vars($data);
-        $this->load->view('template/main');
-    }
+		$this->load->vars($data);
+		return $data;
+	}
 
-    function main() {
-        $segment_active = $this->uri->segment(3);
-        if ($segment_active != NULL) {
-            $data['menu'] = $this->uri->segment(3);
-        } else {
-            $data['menu'] = 'home';
-        }
+	function home() {
 
-        $data['content'] = $this->content_model->get_content($data['menu']);
-        $data['captcha'] = $this->captcha_model->initiate_captcha();
-        foreach ($data['content'] as $row):
+		$segment_active = $this->uri->segment(3);
+		if ($segment_active != NULL) {
+			$data['menu'] = $this->uri->segment(3);
+		} else {
+			$data['menu'] = $this->uri->segment(1);
+		}
 
-            $data['title'] = $row->title;
-            $data['sidebox'] = $row->sidebox;
-            $data['metatitle'] = $row->meta_title;
+		$this->get_content_data($data['menu']);
+		
+		
+		$data['sidebar'] = "sidebox/side";
+		$data['main_content'] = "global/" . $this->config_theme . "/content";
+		//$data['cats'] = $this->products_model->get_cats();
+		//$data['products'] = $this->products_model->get_all_products();
+		$data['section2'] = 'global/links';
+		$data['seo_links'] = $this->content_model->get_seo_links();
+		if ($this->session->flashdata('message')) {
+			$data['message'] = $this->session->flashdata('message');
+		}
 
-        endforeach;
-        $data['main_content'] = "global/" . $this->config_theme . "/content";
-        $data['cats'] = $this->products_model->get_cats();
-        $data['products'] = $this->products_model->get_all_products();
-        $data['section2'] = 'global/links';
-        if ($this->session->flashdata('message')) {
-            $data['message'] = $this->session->flashdata('message');
-        }
+		$data['slideshow'] = 'header/slideshow';
+		$this->load->vars($data);
+		$this->load->view('template/main');
+	}
 
-        $data['slideshow'] = 'header/slideshow';
-        $this->load->vars($data);
-        $this->load->view('template/main');
-    }
+	function gallery($gallery) {
+		$data['content'] = $this->content_model->get_gallery($gallery);
+		$data['main_content'] = "global/gallery";
+		$this->load->vars($data);
+		$this->load->view('template/main');
+	}
 
-    function login() {
-        if ($this->session->flashdata('message')) {
-            $data['message'] = $this->session->flashdata('message');
-        }
-        $id = 'login';
-        $data['content'] = $this->content_model->get_content($id);
-        $data['main_content'] = "user/login_form";
-        $data['title'] = "Login to Eagle";
+	function main() {
+		$segment_active = $this->uri->segment(3);
+		if ($segment_active != NULL) {
+			$data['menu'] = $this->uri->segment(3);
+		} else {
+			$data['menu'] = 'home';
+		}
 
-        $data['page'] = "login";
-        $this->load->vars($data);
-        $this->load->view('template/main');
-    }
+		$data['content'] = $this->content_model->get_content($data['menu']);
+		$data['captcha'] = $this->captcha_model->initiate_captcha();
+		foreach ($data['content'] as $row):
+
+		$data['title'] = $row->title;
+		$data['sidebox'] = $row->sidebox;
+		$data['metatitle'] = $row->meta_title;
+
+		endforeach;
+		$data['main_content'] = "global/" . $this->config_theme . "/content";
+		$data['cats'] = $this->products_model->get_cats();
+		$data['products'] = $this->products_model->get_all_products();
+		$data['section2'] = 'global/links';
+		if ($this->session->flashdata('message')) {
+			$data['message'] = $this->session->flashdata('message');
+		}
+
+		$data['slideshow'] = 'header/slideshow';
+		$this->load->vars($data);
+		$this->load->view('template/main');
+	}
+
+	function login() {
+		if ($this->session->flashdata('message')) {
+			$data['message'] = $this->session->flashdata('message');
+		}
+		$id = 'login';
+		$data['content'] = $this->content_model->get_content($id);
+		$data['main_content'] = "user/login_form";
+		$data['title'] = "Login to Eagle";
+
+		$data['page'] = "login";
+		$this->load->vars($data);
+		$this->load->view('template/main');
+	}
 
 }
 
