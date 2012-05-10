@@ -78,6 +78,8 @@
 
     @media only screen and (min-width: 768px) and (max-width: 959px) {
         .container                                  { width: 768px; }
+        h1 { font-size: 36px; line-height: 45px; margin-bottom: 14px;}
+         h2 { font-size: 26px; line-height: 35px; margin-bottom: 14px;}
         .container .column,
         .container .columns                         { margin-left: 10px; margin-right: 10px;  }
         .column.alpha, .columns.alpha               { margin-left: 0; margin-right: 10px; }
@@ -130,6 +132,10 @@
     /* Note: Design for a width of 320px */
 
     @media only screen and (max-width: 767px) {
+         h1 { font-size: 36px; line-height: 45px; margin-bottom: 14px; text-align:center;}
+         h2 { font-size: 14px; line-height: 29px; margin-bottom: 14px; text-align:center;}
+         h3 { font-size: 22px; line-height: 35px; margin-bottom: 14px; text-align:center;}
+         #slideshow {display:none;}
         .container { width: 300px; }
         .container .columns,
         .container .column { margin: 0; }
@@ -180,6 +186,8 @@
     /* Note: Design for a width of 480px */
 
     @media only screen and (min-width: 480px) and (max-width: 767px) {
+         h1 { font-size: 36px; line-height: 45px; margin-bottom: 14px;}
+         h2 { font-size: 26px; line-height: 35px; margin-bottom: 14px;}
         .container { width: 420px; }
         .container .columns,
         .container .column { margin: 0; }

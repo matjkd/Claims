@@ -10,45 +10,91 @@
 
     </head>
 
-<body>
+    <body>
 
 
 
-	<!-- Primary Page Layout
-	================================================== -->
+        <!-- Primary Page Layout
+        ================================================== -->
 
-	<!-- Delete everything in this .container and get started on your own site! -->
+       
 
-	<div class="container">
-		<div class="sixteen columns">
-			<h1 class="remove-bottom" style="margin-top: 40px">Skeleton</h1>
-			<h5>Version 1.1</h5>
-			<hr />
-		</div>
-		<div class="one-third column">
-			<h3>About Skeleton?</h3>
-			<p>Skeleton is a small collection of well-organized CSS &amp; JS files that can help you rapidly develop sites that look beautiful at any size, be it a 17" laptop screen or an iPhone. It's based on a responsive grid, but also provides very basic CSS for typography, buttons, tabs, forms and media queries. Go ahead, resize this super basic page to see the grid in action.</p>
-		</div>
-		<div class="one-third column">
-			<h3>Three Core Principles</h3>
-			<p>Skeleton is built on three core principles:</p>
-			<ul class="square">
-				<li><strong>A Responsive Grid Down To Mobile</strong>: Elegant scaling from a browser to tablets to mobile.</li>
-				<li><strong>Fast to Start</strong>: It's a tool for rapid development with best practices</li>
-				<li><strong>Style Agnostic</strong>: It provides the most basic, beautiful styles, but is meant to be overwritten.</li>
-			</ul>
-		</div>
-		<div class="one-third column">
-			<h3>Docs &amp; Support</h3>
-			<p>The easiest way to really get started with Skeleton is to check out the full docs and info at <a href="http://www.getskeleton.com">www.getskeleton.com.</a>. Skeleton is also open-source and has a <a href="https://github.com/dhgamache/skeleton">project on git</a>, so check that out if you want to report bugs or create a pull request. If you have any questions, thoughts, concerns or feedback, please don't hesitate to email me at <a href="mailto:hi@getskeleton.com">hi@getskeleton.com</a>.</p>
-		</div>
+        <div class="container">
+            <div class="sixteen columns" id="top_heading">
+                <h2 class="remove-bottom" >accident claims + advice</h2>
 
-	</div><!-- container -->
+            </div>
+            <div class="sixteen columns" id="big_menu">
+                <div class="four columns"><div class="main_links"><h1><a href="" id="bigtitle1">Accident</a></h1><img src="<?= base_url() ?>images/icons/selector.png"/></div> </div>
+                <div class="three columns"><div class="main_links"><h1 ><a href="" id="bigtitle2">Advice</a></h1><img src="<?= base_url() ?>images/icons/selector.png"/> </div></div>
+                <div class="six columns"><div class="main_links"><h1><a href="" id="bigtitle3">Compensation</a></h1><img src="<?= base_url() ?>images/icons/selector.png"/> </div></div>
+                <div class="three columns"><div class="main_links"> <h1><a href="" id="bigtitle4">Claim</a></h1><img src="<?= base_url() ?>images/icons/selector.png"/></div></div>
+                
+                   <div class="sixteen columns" id="accident_mega" style="display:none">
+                accident menu
+            </div>
+                 <div class="sixteen columns" id="advice_mega" style="display:none">
+                advice menu
+            </div>
+                  <div class="sixteen columns" id="compensation_mega" style="display:none">
+                compensation menu
+            </div>
+                  <div class="sixteen columns" id="claim_mega" style="display:none">
+                claim menu
+            </div>
+            </div>
+            
+         
+            
+
+            <div class="sixteen columns"  id="big_heading">
+                <div class="four columns" id="slideshow">
+                    <h2>slideshow</h2>
+                </div>
+                <div class="twelve columns"  >
+                    <h2>Welcome to our personal injury claim website. 
+                        This is part of kenneth elliott + rowe solicitors</h2>
+                    <p>
+                        Everything you need to know about making a no win, no fee personal injury claim is here. Please click on one of the links above to find what you are looking for.
+                    </p>
+                </div>
+            </div>
 
 
-     <?= $this->load->view('template/claims/footer') ?>
-	
-<!-- End Document
-================================================== -->
-</body>
+            <div class="four columns" id="greybox">
+                <h3>Client Comments</h3>
+                <div id="openquote"><img src="<?= base_url() ?>images/icons/open-quote.png"/></div>
+                <div id="quote">They are nice</div>
+                <div id="closequote"><img src="<?= base_url() ?>images/icons/close-quote.png"/></div>
+            </div>
+            <div class="twelve columns">
+               
+
+                <?= $this->load->view($main_content) ?> 
+            </div>
+            <div class="four columns" >
+                &nbsp;
+            </div>
+            <div class="twelve columns" id="greybox">
+                <div class="four columns">
+                    <h2>What makes us better?</h2>
+                </div>
+                <p>
+                    Some text here
+
+                </p>
+            </div>
+            <div class="sixteen columns" id="footer_block">
+                &nbsp;
+
+            </div>
+
+        </div><!-- container -->
+
+
+        <?= $this->load->view('template/claims/footer') ?>
+
+        <!-- End Document
+        ================================================== -->
+    </body>
 </html>

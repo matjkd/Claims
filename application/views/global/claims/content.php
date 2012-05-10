@@ -7,7 +7,7 @@
  <?php if (isset($row->sidebox) && $row->sidebox != NULL) { ?> 
   <div style="float:left; width:530px">
   <?php } ?>
-    <h2><?= $row->title ?></h2>
+    <h3><?= $row->title ?></h3>
 
     <?php
     $is_logged_in = $this->session->userdata('is_logged_in');

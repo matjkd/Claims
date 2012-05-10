@@ -28,15 +28,15 @@ window.log = function(){
 
 $(document).ready(function() {
     $('.slideshow').cycle({
-speedIn:  2000,
-	    speedOut: 2000,
-	   timeout:   10000,
-		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-	});
-$('.slideshow').css("display", "block");
+        speedIn:  2000,
+        speedOut: 2000,
+        timeout:   10000,
+        fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+    });
+    $('.slideshow').css("display", "block");
 });
        
-  $.backstretch("https://s3-eu-west-1.amazonaws.com/grandgardendesigns/background.jpg");
+//$.backstretch("https://s3-eu-west-1.amazonaws.com/webbackgrounds/greenbluelighter.jpg");
 
 // catch all document.write() calls
 (function(doc){
@@ -47,7 +47,60 @@ $('.slideshow').css("display", "block");
     };
 })(document);
 
+//animate color of main big menus
+var title1 = $('#bigtitle1');
+var title2 = $('#bigtitle2');
+var title3 = $('#bigtitle3');
+var title4 = $('#bigtitle4');
+function pulsate1(){ 
+    title1.animate({
+        color:'#b4fef3'
+    },6000,function(){
+        title1.animate({
+            color:'#2ca4ba'
+        },6000,pulsate1);
+    });
+}
+function pulsate2(){ 
+    title2.animate({
+        color:'#b4fef3'
+    },6000,function(){
+        title2.animate({
+            color:'#2ca4ba'
+        },6000,pulsate2);
+    });
+}
+function pulsate3(){ 
+    title3.animate({
+        color:'#b4fef3'
+    },6000,function(){
+        title3.animate({
+            color:'#2ca4ba'
+        },6000,pulsate3);
+    });
+}
+function pulsate4(){ 
+    title4.animate({
+        color:'#b4fef3'
+    },6000,function(){
+        title4.animate({
+            color:'#2ca4ba'
+        },6000,pulsate4);
+    });
+}
 
+setTimeout(function() {
+  pulsate1();
+},0);
+setTimeout(function() {
+  pulsate2();
+}, 3000);
+setTimeout(function() {
+  pulsate3();
+}, 6000);
+setTimeout(function() {
+  pulsate4();
+}, 9000);
 
 
 //wymeditor
@@ -55,14 +108,34 @@ jQuery(function() {
     jQuery('.wymeditor').wymeditor();
 });
 
-$("#title h2").hover(
-  function () {
-    $(this).css('color', '#000000');
-  },
-   function () {
-   $(this).css('color', '#319825');
-  }
-);
+$(document).ready(function() {
+    $(".services").hover(
+        function () {
+            $(this).stop().animate({
+                opacity:0.8
+            },
+            500
+            );
+            $(this).find("h2").stop().animate({
+                color:"#000000"
+            },
+            500
+            );
+        },
+        function () {
+            $(this).stop().animate({
+                opacity:1.0
+            }, 
+            500
+            );
+            $(this).find("h2").stop().animate({
+                color:"#319825"
+            },
+            500
+            );
+        }
+        );
+});
 
 
 
@@ -216,3 +289,158 @@ $(document).ready(function() {
 
 
 });
+
+$(document).ready(function(){
+ 
+       $('#bigtitle1').mouseenter(function() {
+           $('#advice_mega').slideUp('fast');
+           $('#compensation_mega').slideUp('fast');
+           $('#claim_mega').slideUp('fast');
+            var submenu = $('#accident_mega');
+         
+                submenu.slideDown('fast');
+               var submenu_active = true;
+           
+        });
+        var submenu_active = false;
+         
+        $('#accident_mega').mouseenter(function() {
+            submenu_active = true;
+        });
+         
+          $('#bigtitle1').mouseenter(function() {
+            submenu_active = true;
+        });
+        
+          $('#bigtitle1').mouseleave(function() {
+          
+            submenu_active = false;
+            
+             setTimeout(function() { if (submenu_active === false) $('#accident_mega').slideUp('fast'); }, 4000);
+        });
+         
+        $('#accident_mega').mouseleave(function() {
+          submenu_active = false;
+         
+             setTimeout(function() { if (submenu_active === false) $('#accident_mega').slideUp('fast'); }, 4000);       
+             
+        });
+     
+});
+
+$(document).ready(function(){
+ 
+       $('#bigtitle2').mouseenter(function() {
+             $('#accident_mega').slideUp('fast');
+            
+             $('#compensation_mega').slideUp('fast');
+             $('#claim_mega').slideUp('fast');
+            var submenu = $('#advice_mega');
+         
+                submenu.slideDown('fast');
+               var submenu_active = true;
+           
+        });
+        var submenu_active = false;
+         
+        $('#advice_mega').mouseenter(function() {
+            submenu_active = true;
+        });
+         
+          $('#bigtitle2').mouseenter(function() {
+            submenu_active = true;
+        });
+        
+          $('#bigtitle2').mouseleave(function() {
+          
+            submenu_active = false;
+            
+             setTimeout(function() { if (submenu_active === false) $('#advice_mega').slideUp('fast'); }, 4000);
+        });
+         
+        $('#advice_mega').mouseleave(function() {
+          submenu_active = false;
+         
+             setTimeout(function() { if (submenu_active === false) $('#advice_mega').slideUp('fast'); }, 4000);       
+             
+        });
+     
+});
+
+$(document).ready(function(){
+ 
+       $('#bigtitle3').mouseenter(function() {
+             $('#accident_mega').slideUp('fast');
+            $('#advice_mega').slideUp('fast');
+             $('#claim_mega').slideUp('fast');
+            var submenu = $('#compensation_mega');
+         
+                submenu.slideDown('fast');
+               var submenu_active = true;
+           
+        });
+        var submenu_active = false;
+         
+        $('#compensation_mega').mouseenter(function() {
+            submenu_active = true;
+        });
+         
+          $('#bigtitle3').mouseenter(function() {
+            submenu_active = true;
+        });
+        
+          $('#bigtitle3').mouseleave(function() {
+          
+            submenu_active = false;
+            
+             setTimeout(function() { if (submenu_active === false) $('#compensation_mega').slideUp('fast'); }, 4000);
+        });
+         
+        $('#compensation_mega').mouseleave(function() {
+          submenu_active = false;
+         
+             setTimeout(function() { if (submenu_active === false) $('#compensation_mega').slideUp('fast'); }, 4000);       
+             
+        });
+     
+});
+
+$(document).ready(function(){
+ 
+       $('#bigtitle4').mouseenter(function() {
+           $('#accident_mega').slideUp('fast');
+            $('#advice_mega').slideUp('fast');
+             $('#compensation_mega').slideUp('fast');
+            var submenu = $('#claim_mega');
+         
+                submenu.slideDown('fast');
+               var submenu_active = true;
+           
+        });
+        var submenu_active = false;
+         
+        $('#claim_mega').mouseenter(function() {
+            submenu_active = true;
+        });
+         
+          $('#bigtitle4').mouseenter(function() {
+            submenu_active = true;
+        });
+        
+          $('#bigtitle4').mouseleave(function() {
+          
+            submenu_active = false;
+            
+             setTimeout(function() { if (submenu_active === false) $('#claim_mega').slideUp('fast'); }, 4000);
+        });
+         
+        $('#claim_mega').mouseleave(function() {
+          submenu_active = false;
+         
+             setTimeout(function() { if (submenu_active === false) $('#claim_mega').slideUp('fast'); }, 4000);       
+             
+        });
+     
+});
+
+
