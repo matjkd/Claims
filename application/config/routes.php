@@ -40,6 +40,10 @@
 
 $route['default_controller'] = "welcome";
 $route['about'] = '/welcome/home';
+$route['accident'] = '/welcome/home';
+$route['advice'] = '/welcome/home';
+$route['compensation'] = '/welcome/home';
+$route['claim'] = '/welcome/home';
 $route['menu'] = 'menus/list_menus';
 $route['gallery'] = '/welcome/home';
 $route['events'] = '/welcome/home';

@@ -25,15 +25,43 @@ window.log = function(){
         console.log( Array.prototype.slice.call(arguments) );
     }
 };
+function onBefore(curr, next, opts, fwd) {
+	
+
+	
+	//get the height of the current slide
+	var $ht = $(this).height();
+	//set the container's height to that of the current slide
+	$(this).parent().animate({height: $ht});
+	 
+	}
 
 $(document).ready(function() {
     $('.slideshow').cycle({
         speedIn:  2000,
         speedOut: 2000,
-        timeout:   10000,
+        timeout:   5000,
         fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
     });
     $('.slideshow').css("display", "block");
+    
+    $('.slideshow2').cycle({
+        speedIn:  500,
+        speedOut: 500,
+        timeout:   5000,
+        fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+        before: onBefore,
+       
+    });
+    $('.slideshow3').cycle({
+        speedIn:  500,
+        speedOut: 500,
+        timeout:   5000,
+        fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+       
+       
+    });
+   
 });
        
 //$.backstretch("https://s3-eu-west-1.amazonaws.com/webbackgrounds/greenbluelighter.jpg");
@@ -291,7 +319,8 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(){
- var cloudcount = 0;
+	$('#wordcloud a').tagcloud();
+
        $('#bigtitle1').mouseenter(function() {
            $('#advice_mega').slideUp('fast');
            $('#compensation_mega').slideUp('fast');
@@ -300,12 +329,7 @@ $(document).ready(function(){
          
                 submenu.slideDown('fast');
                 
-                if(cloudcount == 0) {
-                $("#wordcloud").jQCloud(word_list, {
-                	width:920
-                });
-                }
-                cloudcount = 1;
+               
                var submenu_active = true;
            
         });

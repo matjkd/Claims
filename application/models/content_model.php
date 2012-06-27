@@ -26,6 +26,20 @@ class Content_model extends CI_Model {
 			return $query->result();
 		}
 	}
+	
+	function increase_weight($id, $newWeight) {
+		$content_update = array(
+				'weight' => $newWeight
+				
+		);
+		
+		
+		
+		
+		$this->db->where('content_id', $id);
+		$update = $this->db->update('content', $content_update);
+		return $update;
+	}
 
 	
 	function get_category($category) {

@@ -6,14 +6,21 @@
     
 </div>
 
-<a href="<?=base_url()?>admin/add_content">add content</a><br/>
+<span class="dashButton">
+<h5><a  href="<?=base_url()?>admin/add_content">add content</a></h5>
+add normal content
+</span>
+<span class="dashButton">
+<h5><a href="<?=base_url()?>admin/add_category_content/testimonial">add Testimonial</a></h5>
+client comments
+</span>
+<span class="dashButton">
+<h5><a href="<?=base_url()?>admin/add_category_content/accident">add Accident</a></h5>
+pages under the accident menu
+</span>
 
-<a href="<?=base_url()?>admin/add_category_content/testimonial">add Testimonial</a><br/>
 
-<a href="<?=base_url()?>admin/add_category_content/accident">add Accident</a><br/>
-
-<a href="<?=base_url()?>admin/add_gallery_content">add gallery content</a><br/>
-
-<a href="<?=base_url()?>admin/add_seo_content">add SEO content</a><br/>
-
-<a href="<?=base_url()?>user/management">User Management</a><br/>
+<span class="dashButton">
+<h5><a href="<?=base_url()?>user/management">User Management</a></h5>
+Manage Users
+</span>

@@ -18,7 +18,7 @@ class Welcome extends MY_Controller {
 			$data['menu'] = 'home';
 		}
 
-		$this->get_content_data($data['menu']);
+		 $this->get_content_data($data['menu']);
 	
 		$data['seo_links'] = $this->content_model->get_seo_links();
 		
@@ -49,13 +49,12 @@ class Welcome extends MY_Controller {
 		$data['title'] = $row->title;
 		$data['sidebox'] = $row->sidebox;
 		$data['metatitle'] = $row->meta_title;
-		
+		$data['content_id'] = $row->content_id;
+		$data['weight'] = $row->weight;
 		$data['meta_keywords'] = $row->meta_keywords;
 		$data['meta_description'] = $row->meta_desc;
 		$data['slideshow'] = $row->slideshow;
-		
 		$data['date_added'] = $row->date_added;
-
 
 		endforeach;
 
@@ -79,15 +78,22 @@ class Welcome extends MY_Controller {
 			$data['menu'] = $this->uri->segment(1);
 		}
 
-		$this->get_content_data($data['menu']);
+		$content = $this->get_content_data($data['menu']);
 		
+		
+		//increase weight of article
+		$newWeight = $content['weight'] + 0.1;
+		$newWeight;
+		$this->content_model->increase_weight($content['content_id'], $newWeight);
 		
 		$data['sidebar'] = "sidebox/side";
+		
 		$data['main_content'] = "global/" . $this->config_theme . "/content";
-		//$data['cats'] = $this->products_model->get_cats();
-		//$data['products'] = $this->products_model->get_all_products();
+		
 		$data['section2'] = 'global/links';
+		
 		$data['seo_links'] = $this->content_model->get_seo_links();
+		
 		if ($this->session->flashdata('message')) {
 			$data['message'] = $this->session->flashdata('message');
 		}

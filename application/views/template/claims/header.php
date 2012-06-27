@@ -17,6 +17,10 @@
 <link rel="stylesheet" href="<?= base_url() ?>css/jqcloud.css">
 <link rel="stylesheet" href="<?= base_url() ?>css/claims/template.css">
 
+<!-- Google Web Font
+================================================== -->
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+
 <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->

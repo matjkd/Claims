@@ -1,13 +1,11 @@
 
-<script type="text/javascript">
-     var word_list = new Array(
+    
+     <div id="wordcloud" >
+     
+     
      <?php foreach($accidents as $row):?>
-        {text: "<?=$row->title?>", weight:<?=$row->weight?>, link: "<?=base_url()?>welcome/home/<?=$row->menu?>"},
-        <?php endforeach;?>
-        {text: "", weight: 2, link: ""}
-      
-      );
-    
-    </script>
-    
-     <div id="wordcloud" ></div>
+     <a href="<?=base_url()?>welcome/home/<?=$row->menu?>" rel="<?=$row->weight?>"><?=$row->title?></a>
+     
+     <?php endforeach;?>
+     
+     </div>
