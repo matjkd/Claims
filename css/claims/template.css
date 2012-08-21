@@ -174,15 +174,21 @@ h2 a:visited {
 }
 #accident_mega, #advice_mega, #compensation_mega, #claim_mega{
     background-color: #344453;
-    
-
+    -moz-box-shadow: 0px 6px 16px #000000;
+-webkit-box-shadow: 0px 6px 16px #000000;
+box-shadow: 0px 6px 16px #000000;
+border:solid 5px #03add7;;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
     color: #fff;
-    
+    position:absolute;
     padding:5px 10px;
     margin:0px;
-    border-top:3px solid #03add7;
-    border-bottom:0px solid #3d77c0;
+ width:930px;
     line-height:14px;
+    top:190px;
+    z-index:50;
 }
 .slideshow h1, .slideshow h2 {
 	color:#fff;
@@ -236,8 +242,7 @@ h2 a:visited {
         right: 2px;
         top: 0;
         z-index: -1;
-        background: #fff;
-        border: 1px solid #ccc;
+       
 }
 
 #signup::after {

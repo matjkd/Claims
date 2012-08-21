@@ -1,9 +1,28 @@
 <!-- Basic Page Needs
   ================================================== -->
 <meta charset="utf-8">
-<title>Accident Claims + Advice</title>
-<meta name="description" content="">
-<meta name="author" content="">
+
+<title><?php if (isset($metatitle) && $metatitle != NULL) {
+    echo $metatitle;
+} else {
+    if(isset($title) && $title != NULL) { 
+        echo $title;
+    } else {
+        echo "Accident Claims and Advice";
+    }
+} ?></title>
+<meta name="description" content="<?php if (isset($meta_description) && $meta_description != NULL) {
+    echo $meta_description;
+} else {
+    echo "Accident Claims and Advice";
+} ?>">
+
+<meta name="keywords" content="<?php if (isset($meta_keywords) && $meta_keywords != NULL) {
+    echo $meta_keywords;
+} else {
+    
+} ?>">
+<meta name="author" content="Redstudio Design Limited">
 
 <!-- Mobile Specific Metas
 ================================================== -->

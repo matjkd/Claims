@@ -93,7 +93,10 @@
 				</div>
 			</div>
 
-			<div class="sixteen columns mega" id="accident_mega" style="display: none;">
+		
+		</div>
+
+	<div class="sixteen columns mega" id="accident_mega" style="display: none;">
 				<?=$this->load->view('global/claims/accident_menu')?>
 			</div>
 			<div class="sixteen columns mega" id="advice_mega" style="display: none;">
@@ -105,9 +108,6 @@
 			<div class="sixteen columns mega" id="claim_mega" style="display: none;">
 				<?=$this->load->view('global/claims/claim_menu')?>
 			</div>
-		</div>
-
-
 
 
 		<div class="sixteen columns" id="big_heading">

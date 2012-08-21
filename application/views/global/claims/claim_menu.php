@@ -3,7 +3,7 @@
 	<div id="signup">Some information here about something or other...</div>
 </div>
 
-<div class="twelve columns omega">
+<div class="twelve columns alpha omega">
 	<form id="signup">
 		<h2>Get in touch right now.</h2>
 

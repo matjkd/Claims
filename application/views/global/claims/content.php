@@ -7,7 +7,8 @@
  <?php if (isset($row->sidebox) && $row->sidebox != NULL) { ?> 
   <div style="float:left; width:530px">
   <?php } ?>
-    <h3><?= $row->title ?></h3>
+    <h2><?= $row->title ?></h2>
+    by Mark Sadler<br/>
 
     <?php
     $is_logged_in = $this->session->userdata('is_logged_in');
@@ -25,7 +26,7 @@
     ?>
 
 
-    <?php $body = str_replace("Grand Garden Design", "<strong>Grand Garden Design</strong>", "$body"); ?>
+    <?php $body = str_replace("Accident Claims and Advice", "<strong>Accident Claims and Advice</strong>", "$body"); ?>
 
 
   
